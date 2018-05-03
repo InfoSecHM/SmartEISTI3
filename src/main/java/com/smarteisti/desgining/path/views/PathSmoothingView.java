@@ -72,7 +72,7 @@ public class PathSmoothingView extends RootView implements WorldListener {
 		pnlLocationMap = new RPanel(PANEL_WORLD_WIDTH-5, PANEL_WORLD_HEIGHT, "Carte");
 		pnlLocationMap.setLocation(0, 0);
 
-		drawingPanel = new DrawingPanel(world, PANEL_WORLD_WIDTH+20, PANEL_WORLD_HEIGHT - 30);
+		drawingPanel = new DrawingPanel(world, PANEL_WORLD_WIDTH+30, PANEL_WORLD_HEIGHT);
 		pnlLocationMap.add(drawingPanel, BorderLayout.CENTER);
 
 		// Controls Panel

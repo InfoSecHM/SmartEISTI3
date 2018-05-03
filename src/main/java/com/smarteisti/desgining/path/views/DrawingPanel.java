@@ -10,10 +10,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.geom.Rectangle2D;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import com.smarteisti.desgining.algorithms.Algorithm;
@@ -86,7 +89,7 @@ public class DrawingPanel extends JPanel implements MouseMotionListener, MouseLi
 
 
 
-        // paint for block and open cells
+		// paint for block and open cells
 		for (int i = 0; i < w.getRows(); i++) {
 			for (int j = 0; j < w.getColumns(); j++) {
 
@@ -98,8 +101,8 @@ public class DrawingPanel extends JPanel implements MouseMotionListener, MouseLi
                         g2.fill(rec);
                     } else {
 
-                        g2.setColor(Color.BLACK);
-                        g2.fill(rec);
+						g2.setColor(Color.BLACK);
+						g2.fill(rec);
 
 
 					}

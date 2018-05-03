@@ -25,7 +25,7 @@ public class DrawingControlPanel2 extends JPanel implements ActionListener, Chan
     private static final long serialVersionUID = 1L;
 
     public String status;
-    DrawingPanel drawingPanel = null;
+    DrawingPanel2 drawingPanel = null;
 
     private JButton clearButton = new JButton("Vider");
     JRadioButton rbtest = new JRadioButton("Dessiner plan");
@@ -38,9 +38,9 @@ public class DrawingControlPanel2 extends JPanel implements ActionListener, Chan
     JSpinner spnRows = new JSpinner();
     JSpinner spnColumns = new JSpinner();
 
-    private int drawMod = DrawingPanel.NONE;
+    private int drawMod = DrawingPanel2.NONE;
 
-    public void setDrawingPanel(DrawingPanel observer) {
+    public void setDrawingPanel(DrawingPanel2 observer) {
         this.drawingPanel = observer;
         this.drawingPanel.setDrawingMod(drawMod);
 
@@ -58,28 +58,28 @@ public class DrawingControlPanel2 extends JPanel implements ActionListener, Chan
         add(clearButton);
 
         rbDraw.addActionListener(this);
-        rbDraw.setSelected(drawMod == DrawingPanel.NONE);
+        rbDraw.setSelected(drawMod == DrawingPanel2.NONE);
         rbDraw.setEnabled(tbEditWorld.isSelected());
         add(rbDraw);
         rbDraw.setVisible(false);
 
         rbtest.addActionListener(this);
-        rbtest.setSelected(drawMod == DrawingPanel.NONE);
+        rbtest.setSelected(drawMod == DrawingPanel2.NONE);
         rbtest.setEnabled(tbEditWorld.isSelected());
         add(rbtest);
 
         rbErase.addActionListener(this);
-        rbErase.setSelected(drawMod == DrawingPanel.ERASE);
+        rbErase.setSelected(drawMod == DrawingPanel2.ERASE);
         rbErase.setEnabled(tbEditWorld.isSelected());
         add(rbErase);
 
         rbStart.addActionListener(this);
-        rbStart.setSelected(drawMod == DrawingPanel.START);
+        rbStart.setSelected(drawMod == DrawingPanel2.START);
         rbStart.setEnabled(tbEditWorld.isSelected());
         add(rbStart);
 
         rbFinish.addActionListener(this);
-        rbFinish.setSelected(drawMod == DrawingPanel.FINISH);
+        rbFinish.setSelected(drawMod == DrawingPanel2.FINISH);
         rbFinish.setEnabled(tbEditWorld.isSelected());
         add(rbFinish);
 
@@ -116,16 +116,16 @@ public class DrawingControlPanel2 extends JPanel implements ActionListener, Chan
                 drawingPanel.clear();
             }
         } else if (obj.equals(rbDraw)) {
-            drawMod = tbEditWorld.isSelected() ? DrawingPanel.DRAW : DrawingPanel.NONE;
+            drawMod = tbEditWorld.isSelected() ? DrawingPanel2.DRAW : DrawingPanel2.NONE;
         } else if (obj.equals(rbErase)) {
-            drawMod = tbEditWorld.isSelected() ? DrawingPanel.ERASE : DrawingPanel.NONE;
+            drawMod = tbEditWorld.isSelected() ? DrawingPanel2.ERASE : DrawingPanel2.NONE;
         } else if (obj.equals(rbStart)) {
-            drawMod = tbEditWorld.isSelected() ? DrawingPanel.START : DrawingPanel.NONE;
+            drawMod = tbEditWorld.isSelected() ? DrawingPanel2.START : DrawingPanel2.NONE;
         } else if (obj.equals(rbFinish)) {
-            drawMod = tbEditWorld.isSelected() ? DrawingPanel.FINISH : DrawingPanel.NONE;
+            drawMod = tbEditWorld.isSelected() ? DrawingPanel2.FINISH : DrawingPanel2.NONE;
         }
         else if (obj.equals(rbtest)) {
-            drawMod = tbEditWorld.isSelected() ? DrawingPanel.PLANMAISON : DrawingPanel.NONE;
+            drawMod = tbEditWorld.isSelected() ? DrawingPanel2.PLANMAISON : DrawingPanel2.NONE;
         }
 
         else if (obj.equals(tbEditWorld)) {
@@ -142,9 +142,9 @@ public class DrawingControlPanel2 extends JPanel implements ActionListener, Chan
 
             if (tbEditWorld.isSelected()) {
                 rbDraw.setSelected(true);
-                drawMod = DrawingPanel.DRAW;
+                drawMod = DrawingPanel2.DRAW;
             } else {
-                drawMod = DrawingPanel.NONE;
+                drawMod = DrawingPanel2.NONE;
             }
         }
         drawingPanel.setDrawingMod(drawMod);

@@ -12,6 +12,7 @@ import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 
+import com.smarteisti.desgining.panels.ObjectsPanel2;
 import com.smarteisti.internal.RPanel;
 import com.smarteisti.internal.RootView;
 import com.smarteisti.desgining.panels.AlgorithmPanel;
@@ -35,10 +36,10 @@ public class PathSmoothingView2 extends RootView implements WorldListener {
     RPanel pnlLocationMap;
     AlgorithmPanel pnlAlgorithms;
     StatisticsPanel pnlStatistics;
-    SmoothingControlPanel pnlSmoothControl;
-    DrawingPanel drawingPanel = null;
+    SmoothingControlPanel2 pnlSmoothControl;
+    DrawingPanel2 drawingPanel = null;
     DrawingControlPanel2 pnlDrawingControl;
-    ObjectsPanel pnlObjects;
+    ObjectsPanel2 pnlObjects;
 
     public PathSmoothingView2() {
         super("Plan maison", "config/PathSmoother.properties");
@@ -72,14 +73,14 @@ public class PathSmoothingView2 extends RootView implements WorldListener {
         pnlLocationMap = new RPanel(PANEL_WORLD_WIDTH-5, PANEL_WORLD_HEIGHT, "Carte");
         pnlLocationMap.setLocation(0, 0);
 
-        drawingPanel = new DrawingPanel(world, PANEL_WORLD_WIDTH+20, PANEL_WORLD_HEIGHT - 30);
+        drawingPanel = new DrawingPanel2(world, PANEL_WORLD_WIDTH+20, PANEL_WORLD_HEIGHT - 30);
         pnlLocationMap.add(drawingPanel, BorderLayout.CENTER);
 
         // Controls Panel
         pnlAlgorithms = new AlgorithmPanel(world, prop, PANEL_CONTROL_WIDTH, PANEL_CONTROL_HEIGHT, "Paramètres d'algorithmes");
         pnlAlgorithms.setLocation(PANEL_WORLD_WIDTH, 0);
         // Smoothing Panel
-        pnlSmoothControl = new SmoothingControlPanel(prop, PANEL_SMOOTH_WIDTH, PANEL_SMOOTH_HEIGHT, "Options d'affichage");
+        pnlSmoothControl = new SmoothingControlPanel2(prop, PANEL_SMOOTH_WIDTH, PANEL_SMOOTH_HEIGHT, "Options d'affichage");
         pnlSmoothControl.setLocation(PANEL_WORLD_WIDTH, PANEL_CONTROL_HEIGHT);
         pnlSmoothControl.setDrawingPanel(drawingPanel);
         // createOutputPanelContents(pnlOutput);
@@ -88,7 +89,7 @@ public class PathSmoothingView2 extends RootView implements WorldListener {
         pnlStatistics = new StatisticsPanel(PANEL_OUTPUT_WIDTH, PANEL_OUTPUT_HEIGHT, "Statistiques");
         pnlStatistics.setLocation(PANEL_WORLD_WIDTH, PANEL_CONTROL_HEIGHT + PANEL_SMOOTH_HEIGHT);
 
-        pnlObjects = new ObjectsPanel(PANEL_OUTPUT_WIDTH, PANEL_OUTPUT_HEIGHT, "Obstacles");
+        pnlObjects = new ObjectsPanel2(PANEL_OUTPUT_WIDTH, PANEL_OUTPUT_HEIGHT, "Obstacles");
         pnlObjects.setLocation(PANEL_WORLD_WIDTH, PANEL_CONTROL_HEIGHT+190 + PANEL_SMOOTH_HEIGHT);
         pnlObjects.setDrawingPanel(drawingPanel);
         // South Control Panel

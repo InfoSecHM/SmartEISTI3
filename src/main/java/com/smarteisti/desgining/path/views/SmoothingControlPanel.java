@@ -38,7 +38,7 @@ public class SmoothingControlPanel extends RPanel implements ActionListener, Pro
 	private static final String TAG_CELL_DIVISIONS = "CELL_DIVISIONS";
 
 	private boolean showActualPath = true;
-	private boolean showSmoothPath = true;
+	private boolean showSmoothPath = false;
 	private boolean showGrid = true;
 	private boolean smoothBoundryPoints = false;
 	private double weightData = 0.1;
@@ -87,7 +87,6 @@ public class SmoothingControlPanel extends RPanel implements ActionListener, Pro
 		cbShowActualPath.setSelected(showActualPath);
 
 
-
 		cbShowGrid = new JCheckBox(" Afficher grille");
 		pnl.add(cbShowGrid);
 		cbShowGrid.setBackground(Color.ORANGE);
@@ -105,7 +104,7 @@ public class SmoothingControlPanel extends RPanel implements ActionListener, Pro
 				showActualPath = props.getProperty(TAG_SHOW_ACTUAL_PATH, "true").equalsIgnoreCase("true");
 			}
 			if (props.containsKey(TAG_SHOW_SMOOTH_PATH)) {
-				showSmoothPath = props.getProperty(TAG_SHOW_SMOOTH_PATH, "true").equalsIgnoreCase("true");
+				showSmoothPath = props.getProperty(TAG_SHOW_SMOOTH_PATH, "false").equalsIgnoreCase("true");
 			}
 			if (props.containsKey(TAG_SHOW_GRID)) {
 				showGrid = props.getProperty(TAG_SHOW_GRID, "true").equalsIgnoreCase("true");

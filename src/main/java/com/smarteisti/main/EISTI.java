@@ -114,7 +114,8 @@ public class EISTI extends JFrame implements ActionListener {
 	}
 
 	protected void loadBackgroundImage() {
-		ImageIcon icon = new ImageIcon(getClass().getResource("/images/robotimage.jpg"));
+		ImageIcon icon = new ImageIcon(getClass().getResource("/images/back.png" +
+				""));
 		JLabel l = new JLabel(icon);
 		l.setBounds(0, 0, icon.getIconWidth(), icon.getIconHeight());
 
